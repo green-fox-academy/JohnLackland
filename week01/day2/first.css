@@ -1,0 +1,86 @@
+
+
+body{
+    margin: 0;
+    background-color: white
+}
+.page{
+    margin:0 auto;
+    padding:0px  10.5%;
+}
+#header {
+    background-color: grey;
+    margin: 0px;
+    border: 1px solid black;
+    padding: 1px 10%;
+}
+
+p{
+    font-family: sans-serif;
+    margin: 
+}
+
+.same{
+    font-weight: bold;
+    margin:10px 0px 0px;
+}
+
+
+#header h1{
+    margin: 0px;
+    padding: 0px 0px;
+}
+
+h3{
+    margin: 1px;
+    font-weight: 100;
+}
+
+h1{
+    font-weight: normal;
+    margin: 
+}
+
+ul li{
+    border: 1px solid black;
+    list-style-type: none;
+}
+
+li{
+    padding: 0px;
+    margin: 13px
+}
+#Lorem {
+    margin: 0px;
+    border: 1px solid black;
+    color: lightgray;
+    width: 200px;
+}
+#submit{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50px;
+    margin: 5px;
+    background-color: lightgray;
+}
+#first-pragraph{
+    margin: 0;
+    padding: 5px 0px 10px 5px;
+    border: 1px solid black;
+    
+}
+.list {
+    padding: 0px 7%;
+}
+
+.list h1, p{
+    padding: 4px 4px 4px 5px;
+    margin:0px
+}
+
+.list h1{
+    margin: 0px;
+}
+
+
+    
