@@ -3,12 +3,12 @@ import java.util.SimpleTimeZone;
 
 public class Parti {
     public static void main(String[] args) {
-        Scanner sc01 = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        Scanner sc02 = new Scanner(System.in);
 
-        int Girls = sc01.nextInt();
-        int Boys = sc02.nextInt();
+
+        int Girls = sc.nextInt();
+        int Boys = sc.nextInt();
 
         if (Girls <= 0)
             System.out.println("Sausage party");
