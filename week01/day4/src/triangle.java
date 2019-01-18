@@ -4,9 +4,10 @@ public class triangle {
         Scanner sc = new Scanner(System.in);
 
         int userInput = sc.nextInt();
+        String test = "*";
 
         for (int a = 1;a <= userInput; a++){
-            System.out.println();
+            System.out.println("*".repeat(a));
 
 
         }
