@@ -17,18 +17,17 @@ public class GuessTheNumber {
 
             int helpingInt = sc.nextInt();
 
-            if (helpingInt > 8)
+            if (helpingInt > 8) {
                 System.out.println("The stored number is higher.");
+            }
 
-            else if (helpingInt < 8)
+            else if (helpingInt < 8) {
                 System.out.println("The stored number is lower.");
+            }
 
             else {
                 win = false;
-
             }
-
-
         }
         System.out.println("You found the number: 8!");
     }
