@@ -1,39 +1,32 @@
-import java.util.*;
-
 import javax.swing.*;
 
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
-    public static void mainDraw(Graphics rajztabla) {
+import java.util.*;
+public class HoriyontalLines {
+    public static void mainDraw(Graphics vonalak) {
         // Create a line drawing function that takes 3 parameters:
         // The x and y coordinates of the line's starting point and the graphics
-        // and draws a line from that point to the center of the canvas.
+        // and draws a 50 long horizontal line from that point.
         // Draw 3 lines with that function. Use loop for that.
-
         Scanner sc = new Scanner(System.in);
-        int lineX  ;
-        int lineY ;
-        for (int i = 0; i < 3; i++) {
 
-            lineX = sc.nextInt() ;
-            lineY =sc.nextInt();
-            drawOneLine(lineX , lineY, rajztabla);
+        int killMeX;
+        int killMeY;
+
+        for (int i = 0; i < 3; i++) {
+            killMeX = sc.nextInt();
+            killMeY = sc.nextInt();
+            Test(killMeX,killMeY,vonalak);
         }
 
 
     }
-    public static void drawOneLine (int lineX, int lineY, Graphics rajztabla ){
+    public static void Test (int killMeX, int killMeY, Graphics vonalak){
 
-
-        int center = 160;
-
-
-        rajztabla.drawLine(lineX, lineY, center, center);
-
-
+        vonalak.drawLine(killMeX, killMeY, killMeX+50, killMeY);
     }
 
     // Don't touch the code below
@@ -50,7 +43,6 @@ public class GoToCenter {
         jFrame.setVisible(true);
         jFrame.pack();
     }
-
     static class ImagePanel extends JPanel {
         @Override
         protected void paintComponent(Graphics graphics) {
