@@ -12,6 +12,7 @@ public class PurpleSteps {
         // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
         Scanner sc = new Scanner(System.in);
         int boxCounter = sc.nextInt();
+
         int size = 10;
         int xStart = 10;
         int yStart = 10;
