@@ -16,7 +16,7 @@ public class StarryNight {
         Scanner scanner = new Scanner(System.in);
 
 
-        int starCounter = 999;
+        int starCounter = 1000;
 
         int  width;
         int hight;
