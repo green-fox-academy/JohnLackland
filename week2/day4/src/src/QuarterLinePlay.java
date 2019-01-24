@@ -4,26 +4,35 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class LiinePlay {
+public class QuarterLinePlay {
     public static void mainDraw(Graphics g) {
+
+        int quarter = 4;
 
         int felosztas = 14;
         lineDrawer(felosztas,g);
 
 
     }
-   public static  void lineDrawer (int felosztas,Graphics g){
-        int osztas = WIDTH / felosztas ;
+    public static  void lineDrawer (int felosztas,int quarter,Graphics g){
 
-        for (int i = 0; i <= felosztas; i++) {
-            g.setColor(new Color(50,205,50));
-            g.drawLine(osztas*i ,0,WIDTH,osztas*i);
+        int width = WIDTH / quarter;
+        int hight = HEIGHT / quarter;
+        int osztas = width / felosztas ;
 
-            g.setColor(new Color(139,0,139));
-            g.drawLine(0,osztas*i,osztas*i,HEIGHT);
-       }
+        for (int littleCanvas = 0; littleCanvas < quarter; littleCanvas++) {
 
-   }
+
+            for (int i = 0; i <= felosztas; i++) {
+                g.setColor(new Color(50,205,50));
+                g.drawLine(osztas*i ,0,width ,osztas*i);
+
+                g.setColor(new Color(139,0,139));
+                g.drawLine(0,osztas*i,osztas*i,HEIGHT);
+            }
+
+        }
+    }
 
 
 
