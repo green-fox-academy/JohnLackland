@@ -4,39 +4,25 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class QuarterLinePlay {
+public class Triangle {
     public static void mainDraw(Graphics g) {
+        int side = 16;
 
-        int quarter = 2;
+        triangleFunction(side,g);
 
-        int felosztas = 14;
-        lineDrawer(felosztas,quarter,g);
+    }public static  void triangleFunction(int side ,Graphics g){
+        int osztas = WIDTH / side;
+        int reduce = osztas / 2;
 
-
-    }
-    public static  void lineDrawer (int felosztas,int quarter,Graphics g){
-
-        int width = WIDTH / quarter;
-        int hight = HEIGHT / quarter;
-        int osztas = width / felosztas ;
-
-        for (int littleCanvas = 0; littleCanvas < quarter; littleCanvas++) {
-
-
-            for (int i = 0; i <= felosztas; i++) {
-                g.setColor(new Color(50,205,50));
-
-                g.drawLine(osztas*i + (littleCanvas*quarter),0,width * littleCanvas ,osztas*i);
-
-                g.setColor(new Color(139,0,139));
-                g.drawLine(0,osztas*i + i *quarter,osztas*i,hight);
-            }
-
+        for (int i = 0; i < osztas - 3; i++) {
+            g.drawLine( reduce * i ,HEIGHT - osztas * i, WIDTH - reduce * i,HEIGHT - osztas * i);
+            g.drawLine(WIDTH / 2 + reduce * i,osztas * i , osztas * i, HEIGHT);
+            g.drawLine(WIDTH  / 2 - reduce * i , osztas * i, WIDTH - osztas * i, HEIGHT ) ;
         }
+
     }
 
-
-
+    // Don't touch the code below
     static int WIDTH = 320;
     static int HEIGHT = 320;
 
