@@ -6,31 +6,32 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class QuarterLinePlay {
     public static void mainDraw(Graphics g) {
-
         int quarter = 2;
+        int felosztas = 28;
 
-        int felosztas = 14;
-        lineDrawer(felosztas,quarter,g);
+        lineDrawer(felosztas, quarter, g);
+
+
 
 
     }
     public static  void lineDrawer (int felosztas,int quarter,Graphics g){
 
-        int width = WIDTH / quarter;
-        int hight = HEIGHT / quarter;
-        int osztas = width / felosztas ;
+        int lepegeto = WIDTH / felosztas;
+        int cut = WIDTH / quarter;
 
-        for (int littleCanvas = 0; littleCanvas < quarter; littleCanvas++) {
+        for (int i = 0; i < felosztas; i++) {
+
+          g.drawLine(lepegeto*i,0,cut,lepegeto+lepegeto*i);
 
 
-            for (int i = 0; i <= felosztas; i++) {
-                g.setColor(new Color(50,205,50));
 
-                g.drawLine(osztas*i + (littleCanvas*quarter),0,width * littleCanvas ,osztas*i);
 
-                g.setColor(new Color(139,0,139));
-                g.drawLine(0,osztas*i + i *quarter,osztas*i,hight);
-            }
+
+           /* for (int j = 0; j < felosztas; j++) {
+
+                g.drawLine(j * lepegeto, i * cut, i * cut, lepegeto + j * lepegeto);
+            }*/
 
         }
     }
