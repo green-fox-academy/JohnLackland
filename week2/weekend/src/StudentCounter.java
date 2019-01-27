@@ -8,7 +8,7 @@ public class StudentCounter {
 
         Map<String, Object> row0 = new HashMap<>();
         row0.put("name", "Theodor");
-        row0.put("age", 9.5);
+        row0.put("age", 9);
         row0.put("candies", 2);
         listOfMaps.add(row0);
 
@@ -42,7 +42,21 @@ public class StudentCounter {
         row5.put("candies", 2);
         listOfMaps.add(row5);
 
-        System.out.println(row5);
+        for (int i = 0; i < listOfMaps.size(); i++) {
+
+            if((int)(listOfMaps.get(i).get("candies")) > 4 ){
+                System.out.println(listOfMaps.get(i).get("name"));
+            }
+        }
+        int summ = 0;
+        for (int i = 0; i < listOfMaps.size(); i++) {
+            if ((int)(listOfMaps.get(i).get("candies")) < 5){
+                summ += (int)(listOfMaps.get(i).get("age"));
+            }
+        }
+        System.out.println(summ);
+
+
 
         // Display the following things:
         //  - The names of students who have more than 4 candies
