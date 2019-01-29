@@ -24,6 +24,7 @@ public class WriteMultipleLines {
         try {
             Path file = Paths.get(path);
             ArrayList<String> list = new ArrayList<>();
+
             for (int i = 0; i < number; i++) {
                 list.add(word);
             }
