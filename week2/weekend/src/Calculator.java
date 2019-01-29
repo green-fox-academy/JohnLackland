@@ -33,12 +33,6 @@ public class Calculator {
                 win = false;
             }
         }
-
-
-
-
-
-
     }
     public static int theCalculator (String userInput) {
         String[] input = userInput.split(" ");
