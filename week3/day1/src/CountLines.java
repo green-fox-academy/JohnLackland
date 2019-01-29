@@ -9,7 +9,7 @@ public class CountLines {
         // It should return zero if it can't open the file, and
         // should not raise any error.
         Scanner sc = new Scanner(System.in);
-        String fileName = sc.nextLine();
+        String fileName = "./src/my-file.txt";
 
         System.out.println(lineCounter(fileName));
 
