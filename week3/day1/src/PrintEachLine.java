@@ -14,14 +14,14 @@ public class PrintEachLine {
             Path filePath = Paths.get("./src/test.tx");
             //System.out.println(Files.exists(filePath));
 
-            ArrayList<String> testList = new ArrayList<>();
+           /* ArrayList<String> testList = new ArrayList<>();
 
             testList.addAll(Files.readAllLines(filePath));
 
             for (String proba:
                  testList) {
                 System.out.println(proba);
-            }
+            }*/
         }catch (Exception ex){
             System.out.println("Unable to read file: test.tx");
         }
