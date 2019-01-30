@@ -8,6 +8,6 @@ public class AnimalTask {
 
         Animal seconAnimal = new Animal();
         seconAnimal.play();
-        System.out.println(seconAnimal.courentStatus());
+        seconAnimal.courentStatus();
     }
 }
