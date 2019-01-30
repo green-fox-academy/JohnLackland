@@ -17,7 +17,7 @@ public class Main {
         Pokemon wildPokemon = new Pokemon("Oddish", "leaf", "water");
 
         wildPokemon.Chose(pokemonOfAsh, wildPokemon);
-        
+
         // Which pokemon should Ash use?
 
     }
