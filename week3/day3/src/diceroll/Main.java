@@ -12,7 +12,7 @@ public class Main {
         // Your task is to roll the dice until all of the dice are 6
 
         DiceSet diceSet = new DiceSet();
-        ArrayList<int> valami = new ArrayList<>();
+
         /*System.out.println(diceSet.getCurrent());
         System.out.println(diceSet.roll());
         System.out.println(diceSet.getCurrent());
@@ -39,7 +39,7 @@ public class Main {
         System.out.println(diceSet.getCurrent());
         System.out.println(fds);
 
-        
+
 
         /*while(diceSet.getCurrent().equals(ArrayList<int> new ))*/
 
