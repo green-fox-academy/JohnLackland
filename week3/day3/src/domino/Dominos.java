@@ -6,10 +6,6 @@ import java.util.List;
 public class Dominos {
     public static void main(String[] args) {
         List<Domino> dominoes = initializeDominoes();
-        // You have the list of Dominoes
-        // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
-        // eg: [2, 4], [4, 3], [3, 5] ...
-
         for (int i = 0; i < dominoes.size()-1; i++) {
 
             for (int j = dominoes.size()-1; j >= 0; j--) {
@@ -17,10 +13,8 @@ public class Dominos {
                 if (dominoes.get(i).getRightSide() == dominoes.get(j).getLeftSide()){
                     dominoes.set(i+1,dominoes.set(j,dominoes.get(i+1)));
                 }
-
             }
         }
-
         System.out.println(dominoes);
     }
 
