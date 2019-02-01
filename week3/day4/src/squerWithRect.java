@@ -8,12 +8,11 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class squerWithRect{
     public static void mainDraw(Graphics graphics) {
 
-        graphics.setColor(Color.ORANGE);
-        graphics.fillRect(0,0, WIDTH, HEIGHT);
 
-        graphics.setColor(Color.BLACK);
+
+
         drawSquare(WIDTH, WIDTH, WIDTH,graphics);
-        //drawLines(WIDTH, graphics);
+
 
     }
 
@@ -65,6 +64,8 @@ public class squerWithRect{
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
             mainDraw(graphics);
+            this.setBackground(Color.ORANGE);
+
         }
     }
 

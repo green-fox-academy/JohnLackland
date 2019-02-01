@@ -10,7 +10,6 @@ public class RBunnys2 {
         if (bunny % 2 == 1 && bunny >= 1) {
            b = earCounter(bunny -1);
            b += 3;
-
         } else if (bunny >= 1) {
             b = earCounter(bunny-1);
             b += 2;
