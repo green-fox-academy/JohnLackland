@@ -10,7 +10,7 @@ public class Main {
         farm.add(10,10);
 
         farm.allatok.add(allat);
-        
+
         farm.kill();
 
 
