@@ -19,20 +19,10 @@ public class Garden {
 
         for (Plant noveny : theListOfPlants) {
            noveny.water(waterPerPlant);
+           noveny.getStatus();
        }
    }
-    public void getTheList(){
-        for (Plant plant:
-                theListOfPlants) {
 
-            if (plant.waterAmount < plant.waterNeed)
-                System.out.println("The " + plant.color + " " + plant.type + " needs water,because it has " + plant.waterAmount + " water");
-            else {
-                System.out.println("The " + plant.color + " " + plant.type + " doesn't need water, because it has " + plant.waterAmount + " water");
-
-            }
-        }
-    }
 
 
 

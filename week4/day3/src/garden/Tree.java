@@ -6,7 +6,6 @@ public class Tree extends Plant{
         super(color);
         this.waterNeed = 10;
         this.waterUsage = 0.5;
-        this.type = "tree";
 
     }
     @Override
@@ -15,4 +14,16 @@ public class Tree extends Plant{
             waterAmount += waterPerPlant * waterUsage;
         }
     }
+    @Override
+    public void getStatus(){
+
+        if (waterNeed < waterAmount){
+            System.out.println("The " + color + " tree needs water,because it has " + waterAmount + " water");
+        }
+        else {
+            System.out.println("The " + color + " tree doesn't need water, because it has " + waterAmount + " water");
+        }
+    }
+
 }
+

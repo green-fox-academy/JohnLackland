@@ -5,7 +5,7 @@ public class Main {
         Garden garden = new Garden();
 
         garden.waterPlants(40);
-        garden.getTheList();
+
 
     }
 }
