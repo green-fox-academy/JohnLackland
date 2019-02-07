@@ -8,7 +8,7 @@ import java.util.List;
 public class Anagram {
     public static void main(String[] args) {
         Anagram a =new Anagram();
-        System.out.println(a.isItAnagramm("ssass","assss"));
+        System.out.println(a.isItAnagramm("ssathtss","ahhhhssss"));
     }
 
     public boolean isItAnagramm(String a , String b){
@@ -23,8 +23,6 @@ public class Anagram {
 
 
         for (int i = 0; i < a.length() ; i++) {
-            System.out.println(first[i]+ "      " + second[i]);
-
             if ( first[i] != second[i]){
                 return false;
             }
