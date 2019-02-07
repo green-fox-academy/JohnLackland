@@ -15,13 +15,6 @@ import java.util.List;
 // [NameOfTheClassUnderTest + Tests]
 public class CalculatorPreparedTest {
 
-    // Recommended naming of the test method:
-    // [MethodName_StateUnderTest_ExpectedBehavior]
-    //
-    // Like:
-    // void sum_NegativeNumberAs1stParam_ReturnsZero()
-    // void sum_NegativeNumberAs2ndParam_ExceptionThrown ()
-    // void sum_SimpleValues_Calculated ()
 
     List<Integer> initials2 = new ArrayList(Arrays.asList(new Integer[]{5, -4, 3}));
 

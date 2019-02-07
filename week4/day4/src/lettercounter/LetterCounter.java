@@ -7,10 +7,10 @@ import java.util.Map;
 
 public class LetterCounter {
     public static void main(String[] args) {
-        System.out.println(letterCounter("ssoorrooss" ));
+
 
     }
-    public static HashMap letterCounter(String something){
+    public HashMap letterCounterr(String something){
         Map<Character,Integer> map = new HashMap<>();
 
         ArrayList<Character> inputToArray = new ArrayList<>();
@@ -24,6 +24,7 @@ public class LetterCounter {
             int counter = 1;
 
             for (int j = 0; j < inputToArray.size(); j++) {
+
                 if (theLetter == inputToArray.get(j)){
                     map.put(theLetter,counter);
                     counter++;
