@@ -5,12 +5,6 @@ import java.util.Arrays;
 public class TrialExamMatrix {
 
     public static void main(String[] args) {
-       /*- Write a method which takes two matrices as parameters and returns a new matrix.
-     - The method should compare each element in the input matrices and fill the
-     returned matrix with the greater values.
-     - You only have to deal with square matrices. A square matrix is a matrix with the
-     same number of rows and columns.
-     - Write 2 different test cases for the method.*/
         int[][] matrix1 = {
                 {1, 2, 3, 4},
                 {4, 3, 2, 1},
