@@ -38,13 +38,7 @@ public class TrialExamMatrix {
 
         for (int row = 0; row < matrix1.length; row++) {
             for (int column = 0; column < matrix1.length; column++) {
-
-                if (matrix1[row][column] > matrix2[row][column]) {
-
-                    something[row][column] = matrix1[row][column];
-                } else {
-                    something[row][column] = matrix2[row][column];
-                }
+                something[row][column] = Integer.max(matrix1[row][column], matrix2[row][column]);
             }
         }
         return something;

@@ -4,5 +4,6 @@ public class Dog extends Animal {
     }
     public Dog(String name){
         this.name = name;
+        healCost = 1 + (int) (Math.random() * 8);
     }
 }
