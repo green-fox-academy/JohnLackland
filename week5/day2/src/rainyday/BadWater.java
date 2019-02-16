@@ -21,17 +21,12 @@ public class BadWater {
             String city = splittedLine[1];
             if (splittedLine[2].equals("RAINY") && map.containsKey(city)) {
                 map.put(city, map.get(city) + 1);
-
-                if (map.get(city) > maxRainyDay) {
-                    maxRainyDay = map.get(city);
-                    mostRainyCity = city;
-                }
             } else if (splittedLine[2].equals("RAINY")) {
                 map.put(city, 1);
             }
         }
         //int maxvalue =(Collections.max((map.values())));
-        return mostRainyCity;
+        return Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
 
     public static List<String> listOutTheFile(String fileName){

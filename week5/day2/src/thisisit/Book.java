@@ -14,15 +14,8 @@ public class Book {
         this.releaseDate = year;
         this.pageNumber = pages;
         this.coverWeight = coverWeight;
-        this.weight = countWeight();
-
-
+        this.weight = pageNumber * 10 + coverWeight;
     }
-
-    public int countWeight(){
-        int valami = pageNumber * 10 + coverWeight;
-        return valami;
-   }
 
    public String giveInformation(){
        return "Information about the book: " + author + ", " + title + " and " + releaseDate + ".";

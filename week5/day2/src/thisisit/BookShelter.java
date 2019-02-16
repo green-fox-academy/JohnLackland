@@ -61,7 +61,6 @@ public class BookShelter {
               authors.put(actualAuthor,actualPageNumber);
           }
       }
-     // System.out.println(Collections.max(authors.entrySet(), Map.Entry.comparingByValue()).getKey());
       return Collections.max(authors.entrySet(), Map.Entry.comparingByValue()).getKey();
   }
 }
