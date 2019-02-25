@@ -8,8 +8,9 @@ public class Exercise9 {
         String test = "bbarmi";
 
         Map<Character, Long> map = test.codePoints().mapToObj(c -> (char) c)
+                .filter(c ->c.equals(' '))
                 .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
-        System.out.println(map);
 
+        System.out.println(map);
     }
 }
