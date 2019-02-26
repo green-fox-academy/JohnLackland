@@ -6,6 +6,6 @@
 
 </head>
 <body>
-<p th:text="${oneHello}" th:style="'font-size:' + ${px}+ 'px;color: rgb(' + ${color1} + ',' + ${color2} + ',' + ${color3} + ');'"  ></p>
+<p th:text="${oneHello}" th:style="'font-size:' + ${px}+ 'px;color: rgb(' + ${color1.nextInt() *255} + ',' + ${color1.nextInt() *255} + ',' + ${color1.nextInt() *255} + ');'"  ></p>
 </body>
 </html>
