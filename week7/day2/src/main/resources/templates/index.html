@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <p th:text="|Name: ${account.getName()}  Balance: ${#numbers.formatDecimal(account.getBalance(), 1, 'DEFAULT', 2, 'DEFAULT')} Zebra  AnimalType: ${account.getAnimalType()}|"></p>
+    </div>
+</body>
+</html>

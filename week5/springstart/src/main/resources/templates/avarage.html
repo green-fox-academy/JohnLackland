@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    </head>
+    <body>
+        <div id="box">
+            <h1><a id="heading" href="/webshop">My Shop</a></h1>
+            <button type="button"><a href="/only-availabel">ONLY AVAILABLE</a></button>
+            <button type="button"> <a href="/cheapestFirst">CHEAPEST FIRST</a></button>
+            <button type="button"> <a href="/contains"> CONTAINS LAPTOP</a></button>
+            <button type="button"><a href="/avarage"> AVARAGE STOCK</a></button>
+            <button type="button"><a href="/max">MOST EXPENSIVE</a></button>
+
+            <p class="avarage" th:text="${avarage}"> </p>
+        </div>
+    </body>
+</html>

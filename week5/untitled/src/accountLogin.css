@@ -1,0 +1,57 @@
+body{background-color: lightgray}
+#box {
+    background-color: white;
+    width: 300px;
+    height: 370px;
+    //border: 25px solid green;
+    padding: 5px 60px;
+    margin: auto;
+    font-family: Microsoft PhagsPa;
+}
+
+#myHeader{
+    font-size: 30px;
+}
+
+#user\&pass p{
+    font-size: 15px;
+    border-collapse: collapse;
+    margin: 0px 0px 5px;
+}
+
+#user\&pass input{
+    width: 100%;
+    height: 35px;
+    border-collapse: collapse;
+    margin: 0px 0px 40px;
+    font-size: 18px;
+    border: 1px solid;
+    border-radius: 3px;
+}
+#user\&pass input:focus{
+    outline: none !important;
+    border:2px solid green;
+    border-radius: 3px;
+
+}
+ button{
+     margin: 0px 255px 20px 0px;
+     padding: 12px 40px;
+     color: whitesmoke;
+     background-color: rgb(22 22 22);
+     border-radius: 20px ;
+     font-size: 15px;
+     border-collapse: collapse;
+     border:1px black;
+ }
+
+button:focus{
+    margin: 0px 255px 20px 0px;
+    padding: 12px 40px;
+    color: whitesmoke;
+    background-color: rgb(22 22 22);
+    border-radius: 20px ;
+    font-size: 15px;
+    border-collapse: collapse;
+    border:1px white;
+}

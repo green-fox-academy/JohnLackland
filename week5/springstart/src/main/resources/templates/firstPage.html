@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    </head>
+
+    <body>
+        <div id="box">
+            <h1><a id="heading" href="/webshop">My Shop</a></h1>
+            <form method="get" action="/only-availabel">
+            <button type="submit"> ONLY AVAILABLE</button>
+            </form>
+            <button type="button"><a href="/cheapestFirst">CHEAPEST FIRST</a></button>
+            <button type="button"><a href="/contains"> CONTAINS LAPTOP</a></button>
+            <button type="button"><a href="/avarage">AVARAGE STOCK</a></button>
+            <button type="button"><a href="/max">MOST EXPENSIVE</a></button>
+
+            <div id="find">
+                <form  method="post" action="/search">
+                    <input type="text" name="barmi" placeholder="search">
+                    <button type="submit">search</button>
+                </form>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity of stock</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="list:${itemList}">
+                    <td th:text="${list.getName()}"></td>
+                    <td th:text="${list.getDescription()}"></td>
+                    <td th:text="${list.getPrice()}"></td>
+                    <td class="lastRow" th:text="${list.getQuantity()} "></td>
+                    </tr>
+
+                </tbody>
+        </table>
+        </div>
+    </body>
+</html>

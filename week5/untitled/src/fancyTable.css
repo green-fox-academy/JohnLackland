@@ -1,0 +1,63 @@
+body{
+    background-color: royalblue ;
+}
+table{
+    border-collapse:collapse ;
+    border-style: hidden;
+
+}
+tbody tr:nth-child(5) td:nth-child(1){
+    border-bottom-left-radius:10px ;
+}
+
+tbody tr:nth-child(5) td:nth-child(2){
+    border-bottom-right-radius:10px ;
+    border-top: 1px;
+
+}
+
+/*thead th:nth-child(1){
+    border-up-left-radius:20px ;
+    background-color:black;
+}
+
+thead th:nth-child(2){
+    border-up-right-radius:20px ;
+    border-top: 1px solid black;
+    background-color:black;
+}*/
+
+th:first-of-type {
+    border-top-left-radius: 5px;
+    background-color:black;
+}
+th:last-of-type {
+    border-top-right-radius: 5px;
+    background-color:black;
+}
+
+ th, td {
+    border: 1px solid darkgray;
+    border-collapse: collapse;
+    padding: 20px 160px 20px 5px;
+}
+thead{
+    font-size: 29px;
+    font-family: Arial, serif;
+    color: lightgray;
+
+    border-bottom:3px solid grey;
+}
+tbody{
+    font-size: 23px;
+    font-family: Georgia, serif;
+    color: black;
+    background: white;
+
+}
+
+tbody tr:nth-child(even) {
+    background: gray;
+}
+
+

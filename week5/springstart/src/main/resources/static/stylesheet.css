@@ -1,0 +1,108 @@
+body{
+    margin: 0px;
+    font-family: "Century Gothic", serif;
+    background-color: lightgray;
+}
+#box{
+    background-color: white;
+    max-width: 950px;
+    height: 89vh;
+    margin: auto;
+    padding: 40px 40px 30px;
+}
+
+#searchfield {
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#search {
+    font-size: 22px;
+    text-transform: capitalize;
+}
+
+input[type="text"] {
+    width: inherit;
+    margin-right: 20px;
+    color: rgb(35, 107, 71);
+    box-shadow: 0px 0px 0px 2px rgb(35, 107, 71) inset;
+    border-style: none;
+    border-radius: 8px;
+    background-color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+h1 {
+    color: deepskyblue;
+    font-size: 40px;
+    border-bottom: 2px deepskyblue solid;
+    padding-bottom: 5px;
+    margin: 0px 10px 0px 10px;
+    text-decoration: none;
+}
+a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+a:hover{
+    background: white;
+    color: orangered;
+}
+
+button {
+    border: 2px red solid;
+    border-radius: 8px;
+    background-color: red;
+    color: whitesmoke;
+    padding: 10px 15px;
+    margin: 20px 6px;
+    font-size: 16px;
+}
+button:hover {
+    text-decoration: none;
+    /*box-shadow: 0px 0px 0px 2px rgb(35, 107, 71) inset;*/
+    border-radius: 8px;
+    background-color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: red 2px solid;
+    color: orangered;
+}
+
+th{
+    background-color: deepskyblue;
+    font-size: 25px;
+
+    padding: 35px;
+}
+td{
+    font-size: 25px;
+
+
+}
+td #lastRow{
+    text-align: center;
+
+}
+
+p {
+    font-size: 25px;
+    font-family: "Microsoft PhagsPa", serif;
+    margin: 5px;
+}
+#heading{
+    color: deepskyblue;
+}
+
+.lastRow{
+    text-align: center;
+}
+
+
