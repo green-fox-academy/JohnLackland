@@ -6,19 +6,31 @@
 </head>
 <body>
     <div>
-        <table style="width:100%">
+        <table style="width:80%">
             <tr>
                 <th>NAME</th>
                 <th>BALANCE</th>
                 <th>TYPE</th>
             </tr>
-            <tr th:each="account: ${bankAccountList}">
+            <tr th:each="account:${bankAccountList}" th:style="${account.getKing()} ? 'color:red;'">
                 <td th:text="${account.getName()}"></td>
                 <td th:text="${account.getBalance()}"></td>
                 <td th:text="${account.getAnimalType()}">50</td>
-                <td th:text="${accountStat.index}"></td>
+                <td th:text="${accountStat.index} + 1"></td>
+                <td th:text="${account.getKing()}"></td>
+                <!--<td th:switch="${account.getBadGuy()}">
+                    <span th:case="true">He is a bad guy</span>
+                    <span th:case="false">He is a good guy</span>
+                </td>-->
+                <td th:text="${account.getBadGuy()} ? 'He is a bad guy' : 'He is a good guy'"></td>
             </tr>
         </table>
+        <form th:action="/oneElement" method="post">
+            <select>
+                <option></option>
+            </select>
+
+        </form>
     </div>
 </body>
 </html>
