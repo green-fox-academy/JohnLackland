@@ -23,4 +23,25 @@ public class UtilityService {
     public String randomColor() {
         return colors.get(random.nextInt(colors.size()));
     }
+
+    public boolean validateEmail(String eMail){
+        if (eMail.contains("@") && eMail.contains(".")){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public String caesar(String text, int number) {
+        if (number < 0) {
+            number = 26 + number;
+        }
+
+        String result = "";
+        for(int i = 0; i < text.length(); i++) {
+            int offset = Character.isUpperCase(text.charAt(i)) ? 'A' : 'a';
+            result += (char)(((int)text.charAt(i) + number - offset) % 26 + offset);
+        }
+        return result;
+    }
 }
