@@ -25,10 +25,23 @@
                 <td th:text="${account.getBadGuy()} ? 'He is a bad guy' : 'He is a good guy'"></td>
             </tr>
         </table>
-        <form th:action="/oneElement" method="post">
-            <select>
-                <option></option>
+        <form action="#" th:action="@{/oneElement}"  method="post">
+            <select th:name="animalName">
+                <option th:each="account : ${bankAccountList}" th:text="${account.getName()}" th:value="${accountStat.index}"></option>
             </select>
+            <input type="submit" value="Raise Balance">
+        </form>
+        <form action="#" th:action="@{/oneElement}" th:object="${bankAccount}" method="post">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" th:field="*{name}">
+
+            <label for="balance">Balance</label>
+            <input type="number" name="balance" id="balance" th:field="*{balance}">
+
+            <label for="animalType">Name</label>
+            <input type="text" name="animalType" id="animalType" th:field="*{animalType}">
+
+
 
         </form>
     </div>

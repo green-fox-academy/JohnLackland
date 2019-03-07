@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,9 +43,18 @@ public class MainController {
     }
 
     @PostMapping("/oneElement")
-    public String addBalance(Model model){
+    public String addBalance(Model model, @RequestParam("animalName") Integer index, @ModelAttribute(name = "bankAccount") BankAccount bankAccount){
+            bankAccountList.get(index).addThem();
+            model.addAttribute("bankAccountList", bankAccountList);
 
+           // bankAccountList.add(bankAccount);
         return "oneElement";
     }
+
+    /*@PostMapping("/oneElement")
+    public String addNewAccount(@ModelAttribute(name = "bankAccount") BankAccount bankAccount){
+        bankAccountList.add(bankAccount);
+        return "oneElement";
+    }*/
 
 }
