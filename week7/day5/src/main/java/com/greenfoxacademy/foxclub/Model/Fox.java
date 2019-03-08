@@ -1,4 +1,4 @@
-package com.greenfoxacademy.foxclub;
+package com.greenfoxacademy.foxclub.Model;
 
 
 import java.util.ArrayList;
@@ -9,6 +9,7 @@ public class Fox {
     List<String> listOfTricks;
     String food;
     String drink;
+
 
 
     public Fox(String name){

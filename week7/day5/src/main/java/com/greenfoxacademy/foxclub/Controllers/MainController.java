@@ -1,6 +1,8 @@
 package com.greenfoxacademy.foxclub.Controllers;
 
-import com.greenfoxacademy.foxclub.Fox;
+import com.greenfoxacademy.foxclub.Model.Fox;
+import com.greenfoxacademy.foxclub.Model.FoxList;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +16,11 @@ import java.util.List;
 @Controller
 public class MainController {
     Fox fox;
-    List<Fox> foxList;
+    FoxList foxList;
 
-    MainController(){
-        foxList = new ArrayList<>();
+    @Autowired
+    MainController(FoxList foxList){
+        this.foxList = foxList;
     }
 
     @GetMapping("/")
@@ -32,12 +35,15 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String postLogin(@RequestParam("name") String name){
+    public String postLogin(Model model, String name){
         if (name.equals("")){
-            return "redirect:/";
-        }else {
-            fox = new Fox(name);
+            return "redirect:/login";
+        } else if(foxList.isItIn(name)){
             return "redirect:/?name=" + name;
+        }else{
+            if (!foxList.isItIn(name))
+            model.addAttribute("isItIn", true);
+            return "login";
         }
     }
 
