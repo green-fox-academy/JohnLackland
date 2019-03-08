@@ -21,8 +21,9 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String getIndex(){
-        return "/index";
+    public String getIndexPage(Model model, @RequestParam( required = false, defaultValue = "Fox") String name) {
+        model.addAttribute("name", name);
+        return "index";
     }
 
     @GetMapping("/login")
@@ -32,8 +33,12 @@ public class MainController {
 
     @PostMapping("/login")
     public String postLogin(@RequestParam("name") String name){
-        fox = new Fox(name);
-        return "redirect:";
+        if (name.equals("")){
+            return "redirect:/";
+        }else {
+            fox = new Fox(name);
+            return "redirect:/?name=" + name;
+        }
     }
 
 }
