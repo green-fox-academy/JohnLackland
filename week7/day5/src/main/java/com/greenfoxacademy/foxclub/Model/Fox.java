@@ -10,13 +10,16 @@ public class Fox {
     String food;
     String drink;
 
+    public Fox(){
 
+    }
 
     public Fox(String name){
         this.name=name;
     }
 
-
-
+    public String getName() {
+        return name;
+    }
 
 }

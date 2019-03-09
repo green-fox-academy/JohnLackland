@@ -7,9 +7,16 @@
 <body>
 <h1>Welcome to Programer Fox Club!</h1>
 <p>Please provide a name, so you can associate it to your pet!</p>
-<form method="post">
-Name <input type="text" th:name="name"> <input type="submit" value="GO">
+<form method="post" action="/login">
+Name <input type="text" name="name"> <input type="submit" value="Login">
 </form>
-<p th:if="${isItIn}"><span style="color: red">You have provided a name that has not been used before, add it as a new one!</p>
+
+<p th:if="${isItIn}"><span style="color: red">You have provided a name that has not been used before, add it as a new one!></span></p>
+
+<form method="post" action="/login">
+    Name <input type="text" name="newAccount">
+    <input type="submit" >
+</form>
+
 </body>
 </html>

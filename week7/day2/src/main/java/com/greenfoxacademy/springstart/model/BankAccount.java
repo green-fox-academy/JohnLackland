@@ -7,7 +7,7 @@ public class BankAccount {
     private Boolean isKing;
     private Boolean badGuy;
 
-    public BankAccount(String name, Double balance, String animalType, Boolean isKing, Boolean badGuy){
+    public BankAccount(String name, Double balance, String animalType, Boolean isKing, Boolean badGuy) {
         this.name = name;
         this.balance = balance;
         this.animaltype = animalType;
@@ -15,11 +15,11 @@ public class BankAccount {
         this.badGuy = badGuy;
     }
 
-    public void addThem(){
-        if (getKing()){
-            balance+=100;
-        }else {
-            balance+=10;
+    public void addThem() {
+        if (getKing()) {
+            balance += 100;
+        } else {
+            balance += 10;
         }
     }
 
