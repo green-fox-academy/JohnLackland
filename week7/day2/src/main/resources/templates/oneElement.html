@@ -6,18 +6,21 @@
 </head>
 <body>
 <div>
-    <table style="width:80%">
+    <table style="width:80%;text-align: center">
         <tr>
             <th>NAME</th>
             <th>BALANCE</th>
             <th>TYPE</th>
+            <th>ID</th>
+            <th>KING</th>
+            <th>GOOD GUY</th>
         </tr>
         <tr th:each="account:${bankAccountList}" th:style="${account.getKing()} ? 'color:red;'">
             <td th:text="${account.getName()}"></td>
             <td th:text="${account.getBalance()}"></td>
             <td th:text="${account.getAnimalType()}">50</td>
             <td th:text="${accountStat.index} + 1"></td>
-            <td th:text="${account.getKing()}"></td>
+            <td th:text="${account.getKing()}?'He is a king':'He is not a king'"></td>
             <!--<td th:switch="${account.getBadGuy()}">
                 <span th:case="true">He is a bad guy</span>
                 <span th:case="false">He is a good guy</span>
@@ -25,22 +28,33 @@
             <td th:text="${account.getBadGuy()} ? 'He is a bad guy' : 'He is a good guy'"></td>
         </tr>
     </table>
-    <form action="#" th:action="@{/oneElement}" method="post">
+    <form  method="post" th:object="${newBankAccount}">
         <select th:name="animalName">
             <option th:each="account : ${bankAccountList}" th:text="${account.getName()}"
                     th:value="${accountStat.index}"></option>
         </select>
         <input type="submit" value="Raise Balance">
     </form>
-    <form action="#" th:action="@{/oneElement}" th:object="${bankAccount}" method="post">
+    <form method="post" th:object="${newBankAccount}" >
         <label for="name">Name</label>
         <input type="text" name="name" id="name" th:field="*{name}">
 
         <label for="balance">Balance</label>
         <input type="number" name="balance" id="balance" th:field="*{balance}">
 
-        <label for="animalType">Name</label>
+        <label for="animalType">Animal type</label>
         <input type="text" name="animalType" id="animalType" th:field="*{animalType}">
+
+        <select th:field="*{king}">
+            <option th:value="${true}">He is a king</option>
+            <option th:value="${false}">He is not a king</option>
+        </select>
+        <select th:field="*{badGuy}">
+            <option th:value="${true}">He is a bad guy</option>
+            <option th:value="${false}">He is a good guy</option>
+        </select>
+
+        <input type="submit">
     </form>
 </div>
 </body>

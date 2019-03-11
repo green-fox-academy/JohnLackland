@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post"   th:object="${inhabitant}">-
+    <input type="text" name="name" th:field="*{name}" required>
+    <input type="number" name="age" th:field="*{age}" required>
+    <ul>
+        <li th:each="radioValue: ${genders}">
+            <input type="radio"
+                th:field="*{gender}"
+                th:value="${radioValue}">
+            <label th:text="${radioValue}"></label>
+        </li>
+    </ul>
+    <input type="submit" value="Go">
+</form>
+</body>
+</html>

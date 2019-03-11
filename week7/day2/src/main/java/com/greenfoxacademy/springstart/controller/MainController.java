@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,10 +19,11 @@ public class MainController {
     private List<BankAccount> bankAccountList;
 
     public MainController() {
-        bankAccountList = Arrays.asList(bankAccount,
+        bankAccountList = new ArrayList<>( Arrays.asList(bankAccount,
                 new BankAccount("Pumba", 4000.00, "boar", false, false),
                 new BankAccount("Timon", 6660.00, "animal", false, true),
-                new BankAccount("Mufase", 4232.00, "halo", true, false));
+                new BankAccount("Mufase", 4232.00, "halo", true, false)));
+
     }
 
     @GetMapping("/show")
@@ -37,24 +39,22 @@ public class MainController {
     }
 
     @GetMapping("/oneElement")
-    public String showOneElement(Model model) {
+    public String showOneElement(Model model,@ModelAttribute("newBankAccount") BankAccount newBankAccount ) {
         model.addAttribute("bankAccountList", bankAccountList);
         return "oneElement";
     }
 
     @PostMapping("/oneElement")
-    public String addBalance(Model model, @RequestParam("animalName") Integer index, @ModelAttribute(name = "bankAccount") BankAccount bankAccount) {
-        bankAccountList.get(index).addThem();
+    public String addBalance(Model model, @RequestParam(name = "animalName", required = false) Integer index, @ModelAttribute(name = "bankAccount" ) BankAccount bankAccount) {
+
         model.addAttribute("bankAccountList", bankAccountList);
 
-        // bankAccountList.add(bankAccount);
-        return "oneElement";
+        if (index != null){
+            bankAccountList.get(index).addThem();
+        }
+       if (bankAccount.getName()!=null && !bankAccount.getName().equals("")){
+           bankAccountList.add(bankAccount);
+       }
+        return "redirect:/oneElement";
     }
-
-    /*@PostMapping("/oneElement")
-    public String addNewAccount(@ModelAttribute(name = "bankAccount") BankAccount bankAccount){
-        bankAccountList.add(bankAccount);
-        return "oneElement";
-    }*/
-
 }

@@ -4,14 +4,14 @@ public class BankAccount {
     private String name;
     private Double balance;
     private String animaltype;
-    private Boolean isKing;
+    private Boolean king;
     private Boolean badGuy;
 
-    public BankAccount(String name, Double balance, String animalType, Boolean isKing, Boolean badGuy) {
+    public BankAccount(String name, Double balance, String animalType, Boolean king, Boolean badGuy) {
         this.name = name;
         this.balance = balance;
         this.animaltype = animalType;
-        this.isKing = isKing;
+        this.king = king;
         this.badGuy = badGuy;
     }
 
@@ -22,6 +22,7 @@ public class BankAccount {
             balance += 10;
         }
     }
+
 
     public String getName() {
         return name;
@@ -36,7 +37,7 @@ public class BankAccount {
     }
 
     public Boolean getKing() {
-        return isKing;
+        return king;
     }
 
     public Boolean getBadGuy() {

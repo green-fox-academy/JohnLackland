@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><a href="/table">Index</a></h1>
+<span th:if="${inhabitant} == null" th:text="'This is not a valid id'"></span>
+<div th:if="${inhabitant} != null" th:object="${inhabitant}">
+    <h1 th:text="*{id}"></h1>
+    <h1 th:text="*{name}"></h1>
+    <h1 th:text="*{age}"></h1>
+    <h1 th:text="*{gender}"></h1>
+</div>
+</body>
+</html>
