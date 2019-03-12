@@ -21,9 +21,10 @@ public class SecondexerciseApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       repositoryInterface.save(new Todo("sgsd",false,true));
+     /*  repositoryInterface.save(new Todo("sgsd",false,true));
         repositoryInterface.save(new Todo("sgfffsd",true,true));
         repositoryInterface.save(new Todo("gadsg",false,true));
         repositoryInterface.save(new Todo("agdfh,ljkh",true,true));
+ */
     }
 }

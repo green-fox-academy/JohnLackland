@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Todos for today:</h1>
-
+<a href="/todo/add">Gyerunk</a>
 <table>
     <tr>
         <th>ID</th>
@@ -20,7 +20,6 @@
         <td th:text="${todo.done}?'true':'false'"></td>
         <td th:text="${todo.urgent}?'true':'false'"></td>
     </tr>
-
 </table>
 </ul>
 </body>

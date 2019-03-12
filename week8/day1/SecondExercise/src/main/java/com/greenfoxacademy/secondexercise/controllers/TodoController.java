@@ -5,9 +5,11 @@ import com.greenfoxacademy.secondexercise.repository.RepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -23,10 +25,26 @@ public class TodoController {
 
 
     @GetMapping(value = {"/", "/list"})
-    public String list(Model model, @RequestParam(value = "active",required = false) boolean active){
-        model.addAttribute("todos", repository.findAll());
+    public String list(Model model, @RequestParam(value = "isActive", required = false) String active) {
+        List<Todo> todoList = new ArrayList<>();
+        if (active != null && active.equalsIgnoreCase("true")) {
+            repository.findAll().forEach(todoList::add);
+            model.addAttribute("todos", todoList.stream().filter(p -> !p.isDone()).collect(Collectors.toList()));
+        } else {
+            model.addAttribute("todos", repository.findAll());
+        }
         return "todolist";
     }
 
+    @GetMapping("/add")
+    public String addNewTodoGet(@ModelAttribute("newTodo") Todo newTodo){
+        return "addTodo";
+    }
+
+    @PostMapping("/add")
+    public String addNewTodoLPost(@ModelAttribute("newTodo") Todo newTodo){
+        repository.save(newTodo);
+        return "redirect:/todo/";
+    }
 
 }
