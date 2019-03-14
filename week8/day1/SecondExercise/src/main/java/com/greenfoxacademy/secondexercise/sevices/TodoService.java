@@ -42,5 +42,20 @@ public class TodoService {
         repository.deleteById(id);
     }
 
+    public Todo find(Long id){
+        return repository.findById(id).orElse(null);
+    }
+
+    public void update(Long id, Todo newTodo){
+        Todo todo = find(id);
+
+        todo.setTitle(newTodo.getTitle());
+        todo.setDone(newTodo.isDone());
+        todo.setUrgent(newTodo.isUrgent());
+
+        save(todo);
+
+    }
+
 
 }

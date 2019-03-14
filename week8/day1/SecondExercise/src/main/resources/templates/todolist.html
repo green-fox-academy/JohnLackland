@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>Todos for today:</h1>
+
+<form>
+    <input type="text" th:field="${text}">
+</form>
 <a href="/todo/add">Gyerunk</a>
 <table>
     <tr>
@@ -22,7 +26,9 @@
         <td><form  th:action="@{'/todo/' + ${todo.id} + '/delete'}">
             <input type="submit" value="Delete">
         </form></td>
-        <td><form th:action="@{'/todo/' + ${todo.id}}">Editt</form></td>
+        <td><form th:action="@{'/todo/edit/' + ${todo.id}}">
+            <input type="submit" th:value="Editt">
+        </form></td>
     </tr>
 </table>
 

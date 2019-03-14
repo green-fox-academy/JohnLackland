@@ -26,8 +26,9 @@ public class TodoController {
 
 
     @GetMapping(value = {"/", "/list"})
-    public String list(Model model, @RequestParam(value = "isActive", required = false) String active) {
+    public String list(Model model, @RequestParam(value = "isActive", required = false) String active,String text) {
         model.addAttribute("todos", repository.addNewTodo(active));
+        model.addAttribute("search", text);
         return "todolist";
     }
 
@@ -50,14 +51,14 @@ public class TodoController {
     }
 
     @GetMapping("/edit/{id}")
-    public String getEdit(@PathVariable("id") Long id){
-
+    public String getEdit(Model model,@PathVariable("id") Long id){
+        model.addAttribute("todo",repository.find(id));
         return "edit";
     }
 
-    @GetMapping("/edit/{id}")
-    public String getEdit(){
-
+    @PostMapping("/edit/{id}")
+    public String updateTodo(@PathVariable("id") Long id,@ModelAttribute("todo") Todo todo){
+        repository.update(id,todo);
         return "redirect:/todo/";
     }
 }
