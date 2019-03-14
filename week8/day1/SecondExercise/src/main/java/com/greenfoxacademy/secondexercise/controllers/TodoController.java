@@ -49,4 +49,15 @@ public class TodoController {
         return "redirect:/todo/";
     }
 
+    @GetMapping("/edit/{id}")
+    public String getEdit(@PathVariable("id") Long id){
+
+        return "edit";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String getEdit(){
+
+        return "redirect:/todo/";
+    }
 }
