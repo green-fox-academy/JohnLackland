@@ -57,7 +57,10 @@ public class TodoService {
 
     }
 
-    public List<Todo> search(String text){
+    public Iterable<Todo> search(String text){
+        if (text.isEmpty()){
+            return repository.findAll();
+        }
         listOfTodos.clear();
         repository.findAll().forEach(listOfTodos::add);
         return listOfTodos.stream()
