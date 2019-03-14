@@ -21,6 +21,7 @@ public class TodoService {
     }
 
     public Iterable<Todo> addNewTodo(String addThis){
+        listOfTodos.clear();
         if(addThis == null){
             return repository.findAll();
         }
