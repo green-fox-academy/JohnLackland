@@ -1,16 +1,11 @@
 package com.greenfoxacademy.secondexercise.controllers;
 
 import com.greenfoxacademy.secondexercise.models.Todo;
-import com.greenfoxacademy.secondexercise.repository.RepositoryInterface;
 import com.greenfoxacademy.secondexercise.sevices.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Controller
@@ -27,13 +22,13 @@ public class TodoController {
     @GetMapping(value = {"/", "/list"})
     public String list(Model model, @RequestParam(value = "isActive", required = false) String active) {
         model.addAttribute("todos", repository.addNewTodo(active));
-        return "todolist";
+        return "todo/todolist";
     }
 
     @PostMapping("/search")
     public String searchPost(Model model,@RequestParam(value = "find", required = false) String find){
         model.addAttribute("todos", repository.search(find));
-        return "todolist";
+        return "todo/todolist";
     }
 
     @GetMapping(value = {"/{id}/delete", "/list/{id}/delete"})
@@ -45,7 +40,7 @@ public class TodoController {
     @GetMapping("/add")
     public String addNewTodoGet(@ModelAttribute("newTodo") Todo newTodo){
 
-        return "addTodo";
+        return "todo/addTodo";
     }
 
     @PostMapping("/add")
@@ -57,7 +52,7 @@ public class TodoController {
     @GetMapping("/edit/{id}")
     public String getEdit(Model model,@PathVariable("id") Long id){
         model.addAttribute("todo",repository.find(id));
-        return "edit";
+        return "todo/edit";
     }
 
     @PostMapping("/edit/{id}")
