@@ -7,24 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SecondexerciseApplication implements CommandLineRunner {
-
-    private RepositoryInterface repositoryInterface;
-
-    public SecondexerciseApplication(RepositoryInterface repositoryInterface) {
-        this.repositoryInterface = repositoryInterface;
-    }
+public class SecondexerciseApplication  {
 
     public static void main(String[] args) {
         SpringApplication.run(SecondexerciseApplication.class, args);
     }
-
-    @Override
-    public void run(String... args) throws Exception {
-     /*  repositoryInterface.save(new Todo("sgsd",false,true));
-        repositoryInterface.save(new Todo("sgfffsd",true,true));
-        repositoryInterface.save(new Todo("gadsg",false,true));
-        repositoryInterface.save(new Todo("agdfh,ljkh",true,true));
- */
-    }
+    
 }

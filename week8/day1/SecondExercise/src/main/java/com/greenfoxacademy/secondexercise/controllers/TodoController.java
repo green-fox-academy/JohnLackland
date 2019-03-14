@@ -44,6 +44,7 @@ public class TodoController {
     @PostMapping("/add")
     public String addNewTodoLPost(@ModelAttribute("newTodo") Todo newTodo){
         repository.save(newTodo);
+
         return "redirect:/todo/";
     }
 
