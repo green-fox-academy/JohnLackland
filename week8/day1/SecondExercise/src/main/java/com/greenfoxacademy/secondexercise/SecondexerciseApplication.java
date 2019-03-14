@@ -12,5 +12,5 @@ public class SecondexerciseApplication  {
     public static void main(String[] args) {
         SpringApplication.run(SecondexerciseApplication.class, args);
     }
-    
+
 }

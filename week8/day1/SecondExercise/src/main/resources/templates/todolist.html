@@ -19,9 +19,12 @@
         <td th:text="${todo.title}"></td>
         <td th:text="${todo.done}?'true':'false'"></td>
         <td th:text="${todo.urgent}?'true':'false'"></td>
-        <td
+        <td><form  th:action="@{'/todo/' + ${todo.id} + '/delete'}">
+            <input type="submit" value="Delete">
+        </form></td>
     </tr>
 </table>
-</ul>
+
+
 </body>
 </html>
