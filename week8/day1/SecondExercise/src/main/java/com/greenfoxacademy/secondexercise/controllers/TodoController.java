@@ -24,11 +24,15 @@ public class TodoController {
         this.repository = repository;
     }
 
-
     @GetMapping(value = {"/", "/list"})
-    public String list(Model model, @RequestParam(value = "isActive", required = false) String active,String text) {
+    public String list(Model model, @RequestParam(value = "isActive", required = false) String active) {
         model.addAttribute("todos", repository.addNewTodo(active));
-        model.addAttribute("search", text);
+        return "todolist";
+    }
+
+    @PostMapping("/search")
+    public String searchPost(Model model,@RequestParam(value = "find", required = false) String find){
+        model.addAttribute("todos", repository.search(find));
         return "todolist";
     }
 

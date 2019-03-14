@@ -57,5 +57,13 @@ public class TodoService {
 
     }
 
+    public List<Todo> search(String text){
+        listOfTodos.clear();
+        repository.findAll().forEach(listOfTodos::add);
+        return listOfTodos.stream()
+                .filter(p -> p.getTitle().equalsIgnoreCase(text))
+                .collect(Collectors.toList());
+    }
+
 
 }
