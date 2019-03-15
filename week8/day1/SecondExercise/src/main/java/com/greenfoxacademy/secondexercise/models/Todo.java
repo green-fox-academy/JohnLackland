@@ -1,9 +1,8 @@
 package com.greenfoxacademy.secondexercise.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Todo {
@@ -15,10 +14,16 @@ public class Todo {
     private boolean urgent;
     private boolean done;
 
+
+    @ManyToOne (cascade = CascadeType.ALL)
+    private Assigne assignee;
+
     public Todo(){
         this.urgent = false;
         this.done = false;
     }
+
+
 
     public Todo(String title) {
         this.title = title;
@@ -58,5 +63,13 @@ public class Todo {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public Assigne getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assigne assignee) {
+        this.assignee = assignee;
     }
 }
