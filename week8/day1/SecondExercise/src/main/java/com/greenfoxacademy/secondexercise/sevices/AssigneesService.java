@@ -19,6 +19,24 @@ public class AssigneesService {
     }
 
     public void save(Assigne assignees){
-        assigneesRepository.save(assignees);
+        if (!assignees.getName().isEmpty() && !assignees.getEmail().isEmpty()){
+            assigneesRepository.save(assignees);
+        }
+    }
+
+    public void delete(Long id){
+        assigneesRepository.deleteById(id);
+    }
+
+    public Assigne find(Long id){
+      return assigneesRepository.findById(id).orElse(null);
+    }
+
+    public void update(Long id, Assigne assigne){
+        Assigne newAssigne = find(id);
+
+        newAssigne.setName( assigne.getName());
+        newAssigne.setEmail(assigne.getEmail());
+        save(newAssigne);
     }
 }

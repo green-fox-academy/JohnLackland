@@ -20,16 +20,16 @@ public class TodoService {
         listOfTodos = new ArrayList<>();
     }
 
-    public Iterable<Todo> addNewTodo(String addThis){
+    public List<Todo> addNewTodo(String addThis){
         listOfTodos.clear();
+        repository.findAll().forEach(listOfTodos::add);
         if(addThis == null){
-            return repository.findAll();
+            return  listOfTodos;
         }
         if (!addThis.isEmpty() && addThis.equalsIgnoreCase("true")){
-            repository.findAll().forEach(listOfTodos::add);
             return listOfTodos.stream().filter(p -> !p.isDone()).collect(Collectors.toList());
         } else {
-           return repository.findAll();
+           return listOfTodos;
         }
     }
 
@@ -53,16 +53,16 @@ public class TodoService {
         todo.setTitle(newTodo.getTitle());
         todo.setDone(newTodo.isDone());
         todo.setUrgent(newTodo.isUrgent());
-
         save(todo);
 
     }
 
-    public Iterable<Todo> search(String text){
-        if (text.isEmpty()){
-            return repository.findAll();
-        }
+    public List<Todo> search(String text){
         listOfTodos.clear();
+        repository.findAll().forEach(listOfTodos::add);
+        if (text.isEmpty()){
+            return listOfTodos;
+        }
         repository.findAll().forEach(listOfTodos::add);
         return listOfTodos.stream()
                 .filter(p -> p.getTitle().equalsIgnoreCase(text))
