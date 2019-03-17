@@ -31,7 +31,7 @@ public class SecondexerciseApplication  implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        Assigne a = new Assigne("Béla", "bela@gfd.hu");
+      /*  Assigne a = new Assigne("Béla", "bela@gfd.hu");
         Assigne b = new Assigne("Gizi", "gizi@gmail.hu");
         Assigne c = new Assigne("Pista", "pista@freemail.hu");
         Assigne d = new Assigne("Endre", "endre@gfd.hu");
@@ -50,9 +50,8 @@ public class SecondexerciseApplication  implements CommandLineRunner{
         todoRepository.save(todo2);
         todoRepository.save(todo3);
         todoRepository.save(todo4);
-        List<Todo> x = new ArrayList<>();
-        x.add(todo1);
-        a.setTodo(x);
-        assigneeRepository.save(a);
+
+        todo1.setAssignee(a);
+        todoRepository.save(todo1);*/
     }
 }

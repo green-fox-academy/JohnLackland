@@ -5,6 +5,9 @@ import com.greenfoxacademy.secondexercise.repository.AssigneesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class AssigneesService {
     private AssigneesRepository assigneesRepository;
@@ -24,6 +27,12 @@ public class AssigneesService {
         }
     }
 
+    public List<Assigne> returnTheList(){
+        List<Assigne> list = new ArrayList<>();
+        assigneesRepository.findAll().forEach(list::add);
+        return list;
+    }
+
     public void delete(Long id){
         assigneesRepository.deleteById(id);
     }
@@ -39,4 +48,6 @@ public class AssigneesService {
         newAssigne.setEmail(assigne.getEmail());
         save(newAssigne);
     }
+
+
 }

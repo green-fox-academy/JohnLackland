@@ -53,6 +53,7 @@ public class TodoService {
         todo.setTitle(newTodo.getTitle());
         todo.setDone(newTodo.isDone());
         todo.setUrgent(newTodo.isUrgent());
+        todo.setAssignee(newTodo.getAssignee());
         save(todo);
 
     }

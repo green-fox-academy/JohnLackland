@@ -16,14 +16,20 @@ public class Todo {
 
 
     @ManyToOne (cascade = CascadeType.ALL)
-    private Assigne assignee;
+    private Assigne assigne;
+
+    public Assigne getAssignee() {
+        return assigne;
+    }
+
+    public void setAssignee(Assigne assignee) {
+        this.assigne = assignee;
+    }
 
     public Todo(){
         this.urgent = false;
         this.done = false;
     }
-
-
 
     public Todo(String title) {
         this.title = title;
@@ -63,13 +69,5 @@ public class Todo {
 
     public void setDone(boolean done) {
         this.done = done;
-    }
-
-    public Assigne getAssignee() {
-        return assignee;
-    }
-
-    public void setAssignee(Assigne assignee) {
-        this.assignee = assignee;
     }
 }
