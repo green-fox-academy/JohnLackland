@@ -1,11 +1,11 @@
-package com.greenfoxacademy.frontend.model;
+package com.greenfoxacademy.frontend.errors;
 
 public class ErrorMassage {
 
     private String error;
 
-    public ErrorMassage() {
-        this.error = "Please provide an input!";
+    public ErrorMassage(String input) {
+        this.error = input;
     }
 
     public String getError() {
