@@ -1,11 +1,11 @@
 package com.greenfoxacademy.frontend.controllers;
 
 import com.greenfoxacademy.frontend.errors.ErrorMassage;
-import com.greenfoxacademy.frontend.model.Greeting;
-import com.greenfoxacademy.frontend.model.UserInput;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.greenfoxacademy.frontend.errors.GreetingError;
+import com.greenfoxacademy.frontend.jsonmodells.ComplexJson;
+import com.greenfoxacademy.frontend.jsonmodells.Until;
+import com.greenfoxacademy.frontend.model.*;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RestControllers {
@@ -24,9 +24,45 @@ public class RestControllers {
 
     @GetMapping("/greeter")
     public Object greeter(@RequestParam(value = "name",required = false) String name, @RequestParam(value = "title", required = false) String title){
-        Greeting greeting = new Greeting(name, title);
+        if (name != null && title != null){
+            Greeting greeting = new Greeting(name, title);
+            return greeting;
+        }else if (name == null && title != null){
+            GreetingError error = new GreetingError("name");
+            return error;
+        } else if (name != null && title == null){
+            GreetingError error = new GreetingError("title");
+            return error;
+        }else {
+            return new GreetingError();
+        }
+    }
 
-        return greeting;
+    @GetMapping("/appenda/{appendable}")
+    public Object returnA(@PathVariable("appendable") String appendable){
+        Appendables appendables = new Appendables(appendable);
+
+        return appendable;
+    }
+
+    @PostMapping("/dountil/{action}")
+    public Object until(@PathVariable("action")String action, @RequestBody Until until){
+        UntilSomething something = new UntilSomething();
+        something.calculateTheField(action, until);
+        return something;
+    }
+
+    @PostMapping("/arrays")
+    public Object arrayHandler(@RequestBody ComplexJson complexJson){
+        if(complexJson.getWhat() == null){
+            ErrorMassage errorMassage = new  ErrorMassage("Pls provide something");
+            return errorMassage;
+        }else {
+            ArrayHandler arrayHandler = new ArrayHandler();
+            arrayHandler.counting(complexJson);
+            return arrayHandler;
+        }
+
 
     }
 }
