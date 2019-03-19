@@ -17,9 +17,9 @@ public class ArrayHandler {
             result = Arrays.stream(json.getNumbers()).sum();
 
         } else  if(json.getWhat().equals("multiply")){
-            int help = 0;
+            int help = 1;
             for (int i:json.getNumbers()) {
-                help += i;
+                help *= i;
             }
             result = help;
 

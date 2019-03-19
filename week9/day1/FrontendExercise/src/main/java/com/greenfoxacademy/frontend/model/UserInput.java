@@ -5,8 +5,8 @@ public class UserInput {
     private int result;
 
     public UserInput(int input) {
-        this.received = input;
         result = input * 2;
+        received = input;
     }
 
     public int getReceived() {
