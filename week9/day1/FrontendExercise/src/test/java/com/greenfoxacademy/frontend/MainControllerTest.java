@@ -2,6 +2,7 @@ package com.greenfoxacademy.frontend;
 
 import com.greenfoxacademy.frontend.controllers.MainController;
 import com.greenfoxacademy.frontend.controllers.RestControllers;
+import com.greenfoxacademy.frontend.services.LogService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,8 @@ public class MainControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-
+    @MockBean
+    private LogService service;
 
     @Test
     public void doubling_15_Return30() throws Exception {
