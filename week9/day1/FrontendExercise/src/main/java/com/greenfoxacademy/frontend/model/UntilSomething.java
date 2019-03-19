@@ -12,7 +12,7 @@ public class UntilSomething {
             for (int i = 1; i < until.getUntil(); i++) {
                 result += i;
             }
-        } else {
+        } else if (action.equals("factor")){
             for (int i = 1; i < until.getUntil(); i++) {
                 result *= i;
             }

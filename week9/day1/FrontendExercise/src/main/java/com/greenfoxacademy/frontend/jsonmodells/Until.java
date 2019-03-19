@@ -2,13 +2,13 @@ package com.greenfoxacademy.frontend.jsonmodells;
 
 public class Until {
 
-    private int until;
+    private Integer until;
 
-    public int getUntil() {
+    public Integer getUntil() {
         return until;
     }
 
-    public void setUntil(int until) {
+    public void setUntil(Integer until) {
         this.until = until;
     }
 }

@@ -42,27 +42,31 @@ public class RestControllers {
     public Object returnA(@PathVariable("appendable") String appendable){
         Appendables appendables = new Appendables(appendable);
 
-        return appendable;
+        return appendables;
     }
 
     @PostMapping("/dountil/{action}")
-    public Object until(@PathVariable("action")String action, @RequestBody Until until){
-        UntilSomething something = new UntilSomething();
-        something.calculateTheField(action, until);
-        return something;
+    public Object until(@PathVariable("action")String action, @RequestBody(required = false) Until until){
+        if(until == null){
+            GreetingError error = new GreetingError("number");
+            return error;
+        }else {
+            UntilSomething something = new UntilSomething();
+            something.calculateTheField(action, until);
+            return something;
+        }
+
     }
 
     @PostMapping("/arrays")
-    public Object arrayHandler(@RequestBody ComplexJson complexJson){
-        if(complexJson.getWhat() == null){
-            ErrorMassage errorMassage = new  ErrorMassage("Pls provide something");
+    public Object arrayHandler(@RequestBody(required = false) ComplexJson complexJson){
+        if(complexJson == null){
+            GreetingError errorMassage = new GreetingError("object");
             return errorMassage;
         }else {
             ArrayHandler arrayHandler = new ArrayHandler();
             arrayHandler.counting(complexJson);
             return arrayHandler;
         }
-
-
     }
 }
