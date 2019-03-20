@@ -13,11 +13,13 @@ import java.util.stream.Collectors;
 public class TodoService {
     private RepositoryInterface repository;
     private List<Todo> listOfTodos;
+    private AssigneesService assigneesService;
 
     @Autowired
-    public TodoService(RepositoryInterface repository) {
+    public TodoService(RepositoryInterface repository,AssigneesService assigneesService) {
         this.repository = repository;
         listOfTodos = new ArrayList<>();
+        this.assigneesService = assigneesService;
     }
 
     public List<Todo> addNewTodo(String addThis){
@@ -47,13 +49,16 @@ public class TodoService {
         return repository.findById(id).orElse(null);
     }
 
-    public void update(Long id, Todo newTodo){
+    public void update(Long id, Todo newTodo,Long assigneeId){
         Todo todo = find(id);
-
         todo.setTitle(newTodo.getTitle());
         todo.setDone(newTodo.isDone());
         todo.setUrgent(newTodo.isUrgent());
-        todo.setAssignee(newTodo.getAssignee());
+        if(assigneeId == -1){
+        todo.setAssignee(null);
+        }else {
+            todo.setAssignee(assigneesService.findAssignee(assigneeId));
+        }
         save(todo);
 
     }

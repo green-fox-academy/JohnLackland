@@ -37,12 +37,12 @@ public class AssigneesService {
         assigneesRepository.deleteById(id);
     }
 
-    public Assigne find(Long id){
+    public Assigne findAssignee(Long id){
       return assigneesRepository.findById(id).orElse(null);
     }
 
     public void update(Long id, Assigne assigne){
-        Assigne newAssigne = find(id);
+        Assigne newAssigne = findAssignee(id);
 
         newAssigne.setName( assigne.getName());
         newAssigne.setEmail(assigne.getEmail());

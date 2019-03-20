@@ -14,9 +14,20 @@
         <input type="submit">
         <a href="/todo/">Cancel</a>
     </p>
-    <select>
-        <option th:field="*{assignee}" th:each="assignees: ${assigne}" th:text="${assignees.name}"></option>
-    </select>
+
+    <div th:if="${todo.getAssignee() != null}">
+        <select name="assigneId">
+            <option th:value=-1>unassigned...</option>
+            <option th:each="actualAssignee : ${assigne}" th:text="${actualAssignee.getName()}" th:value="${actualAssignee.getId()}"
+             th:selected="${actualAssignee.getName() == todo.assignee.getName()}"></option>
+        </select>
+    </div>
+    <div th:unless="${todo.getAssignee() != null}">
+        <select name="assigneId">
+            <option th:value=-1>unassigned...</option>
+            <option th:each="actualAssignee:${assigne}" th:text="${actualAssignee.getName()}" th:value="${actualAssignee.getId()}"></option>
+        </select>
+    </div>
 </form>
 </body>
 </html>

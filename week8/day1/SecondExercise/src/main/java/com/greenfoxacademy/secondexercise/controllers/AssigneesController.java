@@ -39,7 +39,7 @@ public class AssigneesController {
 
     @GetMapping("/assignees/edit/{id}")
     public String editById(Model model, @PathVariable("id") Long id){
-        model.addAttribute("assignees", service.find(id));
+        model.addAttribute("assignees", service.findAssignee(id));
         return "assignees/edit";
     }
 

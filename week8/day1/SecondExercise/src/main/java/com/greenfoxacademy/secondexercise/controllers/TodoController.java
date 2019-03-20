@@ -60,8 +60,8 @@ public class TodoController {
     }
 
     @PostMapping("/edit/{id}")
-    public String updateTodo(@PathVariable("id") Long id,@ModelAttribute("todo") Todo todo){
-        repository.update(id,todo);
+    public String updateTodo(@PathVariable("id") Long id,@ModelAttribute("todo") Todo todo,Long assigneId){
+        repository.update(id,todo,assigneId);
         return "redirect:/todo/";
     }
 }
