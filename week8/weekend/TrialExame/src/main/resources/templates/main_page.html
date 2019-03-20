@@ -6,14 +6,16 @@
 </head>
 <body>
 <div th:if="${errorURL.getAlias()} != null">
-    <p  th:utext="${notContains}?'Your URL is alised to <b>' + ${errorURL.getAlias()} + '</b> and your sercret code is 3123':'Your Alias is already in use'"></p>
+    <p  th:if="${notContains}" th:utext="'Your URL is alised to <b>' + ${errorURL.getAlias()} + '</b> and your sercret code is <b>' + ${errorURL.getSecretCode()} + '</b>'"></p>
+    <p   th:unless="${notContains}" style="color: red">Your Alias is already in use</p>
+
 </div>
 <div th:if="${notContains}">
     <form method="post" action="#" th:action="@{/save_link}" th:object="${urll}">
         <h3>URL</h3>
-        <input type="url" th:field="*{url}">
+        <input type="text" th:field="*{url}">
         <h3>Alias</h3>
-        <input type="text" th :field="*{alias}">
+        <input type="text" th:field="*{alias}">
 
         <input type="submit">
     </form>

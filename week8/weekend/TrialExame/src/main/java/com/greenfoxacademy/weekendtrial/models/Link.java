@@ -7,24 +7,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class URLClass {
+public class Link {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    int id;
+    private String url;
+    private String alias;
+    private String secretCode;
+    private int hitcount;
 
-    public Long getId() {
+    public Link() {
+        secretCode = "" + (int) (Math.random() * 10000);
+        for (int j = 0; j < 4 - secretCode.length(); j++) {
+            secretCode = "0" + secretCode;
+        }
+        hitcount = 0;
+    }
+
+    public int getId() {
         return id;
     }
 
-    private String url;
-    private String alias;
-
-    public URLClass() {
-    }
-
-    public URLClass(String url, String alias) {
-        this.url = url;
-        this.alias = alias;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUrl() {
@@ -41,5 +47,21 @@ public class URLClass {
 
     public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    public String getSecretCode() {
+        return secretCode;
+    }
+
+    public void setSecretCode(String secretCode) {
+        this.secretCode = secretCode;
+    }
+
+    public int getHitcount() {
+        return hitcount;
+    }
+
+    public void setHitcount(int hitcount) {
+        this.hitcount = hitcount;
     }
 }
