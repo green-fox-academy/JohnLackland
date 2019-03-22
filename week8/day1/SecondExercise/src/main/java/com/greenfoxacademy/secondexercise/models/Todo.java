@@ -9,13 +9,13 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
+    
     private String title;
     private boolean urgent;
     private boolean done;
 
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
     private Assigne assigne;
 
     public Assigne getAssignee() {

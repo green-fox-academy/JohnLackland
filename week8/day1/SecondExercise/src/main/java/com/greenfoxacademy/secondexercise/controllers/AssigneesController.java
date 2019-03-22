@@ -48,4 +48,10 @@ public class AssigneesController {
         service.update(id,assigne);
         return "redirect:/todo/assignees";
     }
+
+    @GetMapping("/assignees/details/{id}")
+    public String assigneeDetails(Model model,@PathVariable("id") Long id){
+        model.addAttribute("assignee", service.findAssignee(id));
+        return "assignees/assignee_details";
+    }
 }
