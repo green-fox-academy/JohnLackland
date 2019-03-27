@@ -20,6 +20,7 @@
         <th>Done</th>
         <th>Urgent</th>
         <th>Assignee</th>
+        <th>Created</th>
     </tr>
     <tr th:each="todo : ${todos}"  th:style="${todo.done}?'background-color: green'">
         <td th:text="${todo.id}"></td>
@@ -27,6 +28,7 @@
         <td th:text="${todo.done}?'true':'false'"></td>
         <td th:text="${todo.urgent}?'true':'false'"></td>
         <td th:if="${todo.assignee != null}"><p th:href="@{'/assignees/details/' + ${todo.assignee.id}}" th:text="${todo.assignee.name}"></p></td>
+        <td th:text="${todo.createdAt}"></td>
         <td><form  th:action="@{'/todo/' + ${todo.id} + '/delete'}">
             <input type="submit" value="Delete">
         </form></td>

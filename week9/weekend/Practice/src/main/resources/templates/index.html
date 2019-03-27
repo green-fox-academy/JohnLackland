@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Lenyegeben itt azt akarjuk hogy ha valami elbaszodott csak akkor jelenjen meg a szoveg
+de ha minden jo volt akkor ne ha false a boolean akkor enm jelenik meg ami a diven belul van-->
+<div th:if="${isSomethingWentWrong}">
+    <p style="color: red" th:text="${erromessage}"></p>
+</div>
+
+
+<form method="post" action="#"  th:action="@{/register}" th:object="${newUser}">
+    <p>Email</p>
+    <input required type="email" th:field="*{eMail}">
+    <p>Password</p>
+    <input required type="password" th:field="*{password}">
+    <input type="submit">
+</form>
+
+<p>Users list</p>
+<ul th:each="user: ${userList}">
+    <li th:text="${user.eMail} + '   ' + ${user.password}"></li>
+</ul>
+</body>
+</html>
