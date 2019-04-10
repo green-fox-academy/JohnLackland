@@ -1,0 +1,15 @@
+﻿
+@{
+    Random random = new Random();
+    WebApplication1.Models.Greeting greeting = @ViewData["model"] as WebApplication1.Models.Greeting;
+
+
+}
+<p style="font-size: @random.Next(250)px;
+   color:rgb(@random.Next(250), @random.Next(250), @random.Next(250));">
+
+    @ViewData["hello"]
+</p>
+
+<p>@ViewData["test"]  @greeting.Id</p>
+

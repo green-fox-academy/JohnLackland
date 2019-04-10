@@ -1,0 +1,36 @@
+﻿@{
+    List<BankOfSimba.Models.BankAccount> list = new List<BankOfSimba.Models.BankAccount>(Model);
+
+ }
+<!DOCTYPE  html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Animal type</th>
+        </tr>
+        @foreach (var bankAccount in Model)
+        {
+            <tr>
+                <td>@bankAccount.Id</td>
+                <td>@bankAccount.Name</td>
+                <td>@bankAccount.Balance</td>
+                <td>@bankAccount.AnimalType</td>
+                <td>@bankAccount.Is</td>
+            </tr>
+        }
+    </table>
+    <form action="Add" method="post">
+        <input type="text" name="Name"/>
+        <input type="number" name="Balance"/>
+        <input type="text" name="AnimalType"/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>

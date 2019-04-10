@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Format";
+}
+
+<h2>Format</h2>
+
+<p>@ViewData["text"]</p>
+<p> This is an @("<em>HTML</em>") text. @("<b>Enjoy yourself!</b>")</p>
+<p>    This is an @("<em>HTML</em>") text. <b>Enjoy yourself!</b> </p>
+<p>    This is an <em>HTML</em> text.@Html.Raw("<b> Enjoy yourself!</b>")</p>
+
