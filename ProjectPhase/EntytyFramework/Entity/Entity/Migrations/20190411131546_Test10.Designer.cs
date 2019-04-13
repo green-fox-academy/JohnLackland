@@ -4,14 +4,16 @@ using Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Entity.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20190411131546_Test10")]
+    partial class Test10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Assignees");
+                    b.ToTable("Assignee");
                 });
 
             modelBuilder.Entity("Entity.Models.Todo", b =>
@@ -37,8 +39,6 @@ namespace Entity.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long?>("AssigneeId");
 
                     b.Property<string>("Description");
 
@@ -48,18 +48,20 @@ namespace Entity.Migrations
 
                     b.Property<string>("Title");
 
+                    b.Property<long?>("assigneeId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AssigneeId");
+                    b.HasIndex("assigneeId");
 
                     b.ToTable("Todos");
                 });
 
             modelBuilder.Entity("Entity.Models.Todo", b =>
                 {
-                    b.HasOne("Entity.Models.Assignee", "Assignee")
+                    b.HasOne("Entity.Models.Assignee", "assignee")
                         .WithMany("Todos")
-                        .HasForeignKey("AssigneeId");
+                        .HasForeignKey("assigneeId");
                 });
 #pragma warning restore 612, 618
         }

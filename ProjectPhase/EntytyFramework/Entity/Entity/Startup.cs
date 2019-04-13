@@ -26,7 +26,7 @@ namespace Entity
         {
             services.AddMvc();
             services.AddDbContext<ApplicationContext>(builder =>
-                builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                builder.UseLazyLoadingProxies().UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

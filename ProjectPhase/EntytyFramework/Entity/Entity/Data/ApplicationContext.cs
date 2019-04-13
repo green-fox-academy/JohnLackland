@@ -14,5 +14,6 @@ namespace Entity
         }
 
         public DbSet<Todo> Todos { get; set; }
+        public DbSet<Assignee> Assignees{ get; set; }
     }
 }

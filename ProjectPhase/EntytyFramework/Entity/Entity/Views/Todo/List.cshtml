@@ -5,10 +5,25 @@
     <title></title>
 </head>
 <body>
-    @foreach (var kaki in Model)
-    {
-        <p>@kaki.Title</p>
-    }
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Urgent</th>
+            <th>Done</th>
+        </tr>
+        @foreach (var kaki in Model)
+        {
+        <tr>
+            <td>@kaki.Id</td>
+            <td>@kaki.Title</td>
+            <td>@kaki.IsUrgent</td>
+            <td>@kaki.IsDone</td>
+          
+        </tr>
+            
+        }
 </body>
 </html>
 
