@@ -4,14 +4,16 @@ using ASP.NET_Core_Webapp;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASP.NET_Core_Webapp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20190425121505_joiningTable2")]
+    partial class joiningTable2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,9 +50,13 @@ namespace ASP.NET_Core_Webapp.Migrations
 
                     b.Property<int>("Level");
 
+                    b.Property<long?>("UserId");
+
                     b.HasKey("BadgeLevelId");
 
                     b.HasIndex("BadgeId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("BadgeLevels");
                 });
@@ -113,6 +119,8 @@ namespace ASP.NET_Core_Webapp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<long?>("BadgeLevelId");
+
                     b.Property<string>("Email");
 
                     b.Property<string>("Name");
@@ -123,20 +131,9 @@ namespace ASP.NET_Core_Webapp.Migrations
 
                     b.HasKey("UserId");
 
+                    b.HasIndex("BadgeLevelId");
+
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("ASP.NET_Core_Webapp.Entities.UserLevel", b =>
-                {
-                    b.Property<long>("BadgeLevelId");
-
-                    b.Property<long>("UserId");
-
-                    b.HasKey("BadgeLevelId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserLevels");
                 });
 
             modelBuilder.Entity("ASP.NET_Core_Webapp.Entities.BadgeLevel", b =>
@@ -144,6 +141,10 @@ namespace ASP.NET_Core_Webapp.Migrations
                     b.HasOne("ASP.NET_Core_Webapp.Entities.Badge", "Badge")
                         .WithMany("Levels")
                         .HasForeignKey("BadgeId");
+
+                    b.HasOne("ASP.NET_Core_Webapp.Entities.User")
+                        .WithMany("BadgeLevels")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("ASP.NET_Core_Webapp.Entities.Pitch", b =>
@@ -172,17 +173,11 @@ namespace ASP.NET_Core_Webapp.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("ASP.NET_Core_Webapp.Entities.UserLevel", b =>
+            modelBuilder.Entity("ASP.NET_Core_Webapp.Entities.User", b =>
                 {
-                    b.HasOne("ASP.NET_Core_Webapp.Entities.BadgeLevel", "Badgelevel")
-                        .WithMany("UserLevels")
-                        .HasForeignKey("BadgeLevelId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ASP.NET_Core_Webapp.Entities.User", "User")
-                        .WithMany("UserLevels")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("ASP.NET_Core_Webapp.Entities.BadgeLevel")
+                        .WithMany("Users")
+                        .HasForeignKey("BadgeLevelId");
                 });
 #pragma warning restore 612, 618
         }

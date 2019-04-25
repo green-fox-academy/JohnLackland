@@ -7,8 +7,48 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190424130853_nametest.cs" />
+    <Compile Remove="Migrations\20190424130853_nametest.Designer.cs" />
+    <Compile Remove="Migrations\20190424131631_nametest2.cs" />
+    <Compile Remove="Migrations\20190424131631_nametest2.Designer.cs" />
+    <Compile Remove="Migrations\20190424132028_nametest3.cs" />
+    <Compile Remove="Migrations\20190424132028_nametest3.Designer.cs" />
+    <Compile Remove="Migrations\20190424132333_nametest4.cs" />
+    <Compile Remove="Migrations\20190424132333_nametest4.Designer.cs" />
+    <Compile Remove="Migrations\20190424132602_nametest5.cs" />
+    <Compile Remove="Migrations\20190424132602_nametest5.Designer.cs" />
+    <Compile Remove="Migrations\20190424132706_nametest6.cs" />
+    <Compile Remove="Migrations\20190424132706_nametest6.Designer.cs" />
+    <Compile Remove="Migrations\20190424132804_nametest7.cs" />
+    <Compile Remove="Migrations\20190424132804_nametest7.Designer.cs" />
+    <Compile Remove="Migrations\20190424133249_nametest8.cs" />
+    <Compile Remove="Migrations\20190424133249_nametest8.Designer.cs" />
+    <Compile Remove="Migrations\20190424133345_nametest9.cs" />
+    <Compile Remove="Migrations\20190424133345_nametest9.Designer.cs" />
+    <Compile Remove="Migrations\20190424133516_nametest10.cs" />
+    <Compile Remove="Migrations\20190424133516_nametest10.Designer.cs" />
+    <Compile Remove="Migrations\20190424134835_String.cs" />
+    <Compile Remove="Migrations\20190424134835_String.Designer.cs" />
+    <Compile Remove="Migrations\20190424135156_String2.cs" />
+    <Compile Remove="Migrations\20190424135156_String2.Designer.cs" />
+    <Compile Remove="Migrations\20190424135422_String3.cs" />
+    <Compile Remove="Migrations\20190424135422_String3.Designer.cs" />
+    <Compile Remove="Migrations\20190424135714_String4.cs" />
+    <Compile Remove="Migrations\20190424135714_String4.Designer.cs" />
+    <Compile Remove="Migrations\20190424135745_String99.cs" />
+    <Compile Remove="Migrations\20190424135745_String99.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
